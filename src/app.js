@@ -11,6 +11,7 @@ const {
 
 
 const app = express()
+const port = process.env.PORT || 3000 // port provided from heroku
 
 // Define paht for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -118,6 +119,7 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is UP on port 3000')
+// heroku will provide the port 
+app.listen(port, () => {
+    console.log('Server is UP on port' + port)
 })
